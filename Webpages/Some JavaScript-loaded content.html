@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Some JavaScript-loaded content</title>
+<script src="../js/jquery-2.1.1.min.js"></script>
+
+</head>
+<body>
+<div id="content">
+This is some content that will appear on the page while it's loading. You don't care about scraping this.
+</div>
+
+<script>
+$.ajax({
+    type: "GET",
+    url: "loadedContent.php",
+    success: function(response){
+
+	setTimeout(function() {
+	    $('#content').html(response);
+	}, 2000);
+    }
+  });
+
+function ajax_delay(str){
+ setTimeout("str",2000);
+}
+</script>
+</body>
+</html>
